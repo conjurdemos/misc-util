@@ -1,0 +1,7 @@
+#!/bin/bash -eu
+
+PUPPET_AGENT_LINUX_HOST=$(terraform output puppet_agent_redhat_public_dns)
+
+ssh -i "./id_rsa" \
+    -o "StrictHostKeyChecking no" \
+    "ec2-user@${PUPPET_AGENT_LINUX_HOST}" 
